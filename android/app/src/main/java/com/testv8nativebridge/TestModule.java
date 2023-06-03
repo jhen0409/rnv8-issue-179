@@ -10,6 +10,8 @@ import com.facebook.react.bridge.WritableNativeArray;
 import java.util.Map;
 import java.util.HashMap;
 
+import android.util.Log;
+
 public class TestModule extends ReactContextBaseJavaModule {
   public static final String REACT_CLASS = "TestModule";
   private ReactApplicationContext reactContext = null;
@@ -26,10 +28,13 @@ public class TestModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void test(ReadableArray input, Promise promise) {
+    long t0 = System.currentTimeMillis();
     WritableNativeArray result = new WritableNativeArray();
     for (int i = 0; i < input.size(); i++) {
       result.pushInt(input.getInt(i));
     }
     promise.resolve(result);
+    long t1 = System.currentTimeMillis();
+    Log.d("TestModule", "test: " + (t1 - t0) + "ms");
   }
 }
