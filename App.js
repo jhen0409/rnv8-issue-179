@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import {SafeAreaView, Text, Pressable, NativeModules} from 'react-native';
+import {SafeAreaView, Text, Pressable} from 'react-native';
+import TestModule from 'react-native-test-perf/src';
 
 function App() {
   const [logs, setLogs] = useState([]);
@@ -10,7 +11,7 @@ function App() {
     // call native module (run 10 times)
     for (let i = 0; i < 10; i++) {
       const t0 = performance.now();
-      await NativeModules.TestModule.test(array);
+      await TestModule.test(array);
       const took = performance.now() - t0;
       console.log(`Call to test took ${took} milliseconds.`);
       setLogs(logs => [...logs, `Call to test took ${took} milliseconds.`]);
