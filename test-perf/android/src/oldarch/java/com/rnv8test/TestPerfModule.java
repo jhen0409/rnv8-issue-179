@@ -1,4 +1,4 @@
-package com.testv8nativebridge;
+package com.rnv8test;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -12,11 +12,11 @@ import java.util.HashMap;
 
 import android.util.Log;
 
-public class TestModule extends ReactContextBaseJavaModule {
-  public static final String REACT_CLASS = "TestModule";
+public class TestPerfModule extends ReactContextBaseJavaModule {
+  public static final String REACT_CLASS = "TestPerf";
   private ReactApplicationContext reactContext = null;
 
-  public TestModule(ReactApplicationContext context) {
+  public TestPerfModule(ReactApplicationContext context) {
     super(context);
     reactContext = context;
   }
@@ -35,6 +35,6 @@ public class TestModule extends ReactContextBaseJavaModule {
     }
     promise.resolve(result);
     long t1 = System.currentTimeMillis();
-    Log.d("TestModule", "test: " + (t1 - t0) + "ms");
+    Log.d("TestPerf", "test: " + (t1 - t0) + "ms");
   }
 }
