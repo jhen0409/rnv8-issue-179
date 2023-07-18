@@ -2,7 +2,6 @@ package com.rnv8test;
 
 import androidx.annotation.Nullable;
 
-import com.facebook.react.BuildConfig;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.module.model.ReactModuleInfo;
